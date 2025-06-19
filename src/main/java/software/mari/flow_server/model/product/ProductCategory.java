@@ -27,7 +27,7 @@ public class ProductCategory {
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "productCategory")
     private List<Product> products = new ArrayList<>();
 
 }
