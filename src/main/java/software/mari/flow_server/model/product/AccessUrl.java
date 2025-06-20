@@ -1,26 +1,25 @@
-package software.mari.flow_server.model.product.access;
+package software.mari.flow_server.model.product;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import software.mari.flow_server.model.product.Product;
 
 @Entity
+@Table(name = "access_url")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name = "access_url")
 public class AccessUrl {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long accessURL_id;
+    private Long accessUrlId;
 
     @Column(name = "access_url", nullable = false)
-    private String access_url;
+    private String accessUrl;
 
     @ManyToOne
     @JoinColumn(name = "platform_id", nullable = false)

@@ -19,15 +19,12 @@ public class ProductCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long productCategoryId;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
+    @Column(name = "name", nullable = false, length = 50)
+    private String categoryName;
 
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
-    private String description;
-
-    @OneToMany(mappedBy = "productCategory")
-    private List<Product> products = new ArrayList<>();
+    private String categoryDescription;
 
 }

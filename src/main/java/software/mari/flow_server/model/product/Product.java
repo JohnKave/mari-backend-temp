@@ -1,16 +1,15 @@
 package software.mari.flow_server.model.product;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
-import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import software.mari.flow_server.model.User;
-import software.mari.flow_server.model.product.highlight.ProductHighlight;
+import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -18,7 +17,7 @@ import software.mari.flow_server.model.product.highlight.ProductHighlight;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_id;
+    private Long productId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -28,23 +27,20 @@ public class Product {
     @JoinColumn(name = "productCategory_id", nullable = false)
     private ProductCategory productCategory;
 
-    @ManyToOne
-    @JoinColumn(name = "productRating_id", nullable = false)
-    private ProductRating productRating;
-
     @Column(name = "name", nullable = false)
-    private String product_name;
+    private String productName;
 
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
-    private String product_description;
+    private String productDescription;
 
     @Column(name = "product_logo", nullable = false, columnDefinition = "TEXT")
-    private String product_logo;
+    private String productLogo;
 
     @Column(name = "create_at", nullable = false)
-    private Timestamp create_at;
+    private LocalDateTime createAt;
 
     @Column(name = "update_at", nullable = false)
-    private Timestamp update_at;
+    private LocalDateTime updateAt;
+
 
 }

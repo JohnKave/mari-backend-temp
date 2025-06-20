@@ -1,7 +1,7 @@
 package software.mari.flow_server.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import software.mari.flow_server.model.product.access.AccessUrl;
+import software.mari.flow_server.model.product.AccessUrl;
 
-public interface AccessUrlRepository extends JpaRepository<AccessUrl, Integer> {
+public interface AccessUrlRepository extends JpaRepository<AccessUrl, Long> {
 }

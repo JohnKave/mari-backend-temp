@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user")
+@Table(name = "app_user") // "user" conflicts with postgres reserved keyword
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String userId;
 
     @Column(name = "name", nullable = false)
     private String name;
