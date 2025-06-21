@@ -18,6 +18,7 @@ import software.mari.flow_server.model.User;
 public class ProductReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long productReviewId;
 
     @Min(0)

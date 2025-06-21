@@ -16,6 +16,7 @@ public class AccessUrl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long accessUrlId;
 
     @Column(name = "access_url", nullable = false)

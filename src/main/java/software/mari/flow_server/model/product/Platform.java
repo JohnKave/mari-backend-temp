@@ -16,9 +16,10 @@ public class Platform {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long platformId;
 
-    @Column(name = "platform_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String platformName;
 
     @ManyToOne

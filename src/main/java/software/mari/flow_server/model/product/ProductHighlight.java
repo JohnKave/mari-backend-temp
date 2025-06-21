@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class ProductHighlight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long productHighLightId;
 
     @ManyToOne
