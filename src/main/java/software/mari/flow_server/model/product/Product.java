@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import software.mari.flow_server.model.User;
+import software.mari.flow_server.model.user.User;
 import java.time.LocalDateTime;
 
 @Entity
