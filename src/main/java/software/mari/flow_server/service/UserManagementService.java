@@ -15,22 +15,20 @@ public class UserManagementService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public void registerUser(RegisterRequest request) {
+    public String registerUser(RegisterRequest request) {
         // check if email exists
-//        if (userRepository.existsByMail(request.getMail())) {
-//            throw new EmailAlreadyExistsException("Email already Registered!");
-//        }
-
+            if (userRepository.findByMail(request.getMail()).isPresent()) {
+                return "Email already Registered!";
+            }
         var user = User.builder()
-                .name(request.getName()) //This had some errors, name was null even after this
+                .name(request.getName())
                 .mail(request.getMail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .isDeveloper(request.isDeveloper())
                 .build();
 
-        user.setName(request.getName()); //This was added and solved the above problem
-
         userRepository.save(user);
+        return "Registration successful.";
 
     }
 
