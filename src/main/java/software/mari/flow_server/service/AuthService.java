@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import software.mari.flow_server.model.user.AuthRequest;
 import software.mari.flow_server.model.user.AuthResponse;
+import software.mari.flow_server.security.CustomUserDetailsService;
+import software.mari.flow_server.security.JwtService;
 
 @Service
 @RequiredArgsConstructor

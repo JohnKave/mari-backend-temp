@@ -1,0 +1,3 @@
+--for adding and changing column name
+--UPDATE product SET product_name = name, group_name = 'default_group' WHERE product_name is NULL;
+--ALTER TABLE product DROP COLUMN name;

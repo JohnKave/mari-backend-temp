@@ -1,4 +1,4 @@
-package software.mari.flow_server.service;
+package software.mari.flow_server.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

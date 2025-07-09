@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import software.mari.flow_server.model.user.User;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -24,12 +26,19 @@ public class Product {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "productCategory_id", nullable = false)
-    private ProductCategory productCategory;
+    @ManyToMany
+    @JoinTable(
+            name = "product_category_mapping",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<ProductCategory> categories = new HashSet<>();
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "product_name", nullable = false)
     private String productName;
+
+    @Column(name = "group_name", nullable = false)
+    private String productGroupName;
 
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String productDescription;

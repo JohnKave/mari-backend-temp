@@ -1,4 +1,4 @@
-package software.mari.flow_server.service;
+package software.mari.flow_server.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -6,9 +6,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import software.mari.flow_server.config.JwtProperties;
 
 import java.security.Key;
 import java.util.Date;
@@ -20,8 +20,9 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    // Move this to env
-    private final JwtProperties jwtProperties;
+
+    @Value("${jwt.secret}")
+    private String secret_key;
 
     private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24;
 
@@ -75,7 +76,7 @@ public class JwtService {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtProperties.getSecret_key());
+        byte[] keyBytes = Decoders.BASE64.decode(secret_key);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

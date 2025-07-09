@@ -12,7 +12,7 @@ import software.mari.flow_server.service.AuthService;
 import software.mari.flow_server.service.UserManagementService;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
